@@ -8,9 +8,9 @@ def clear_screen():
 clear_screen()
 
 while True:
-    v0 = (float)(input("Enter the intial velocity of the projectile: ")) #initial velocity in m/s
+    v0 = (float)(input("Enter the initial velocity of the projectile: ")) #initial velocity in m/s
     g = 9.81 #acceleration due to gravity in m/s^2
-    theta = (float)(input("Enter the intial angle in degrees: ")) #iniial angle in degrees
+    theta = (float)(input("Enter the initial angle in degrees: ")) #iniial angle in degrees
     theta_rad = np.radians(theta) #convert angle to radians
     vx = v0 * np.cos(theta_rad) #horizontal component of velocity
     vy = v0 * np.sin(theta_rad) #vertical component of velocity

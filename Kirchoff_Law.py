@@ -11,12 +11,11 @@ while True:
     print("Aim: To  calculate the current flowing through each branch of the circuit using Kirchoff's Voltage law using Four current loops")
 
     # Defining the coefficient matrix
-    A = np.array([[44, -10, -16, 0],
-                [10, -43, 6, 12],
-                [16, 6, -30, 8],
-                [0, 12, 8, -34]])
+    A = np.array([[32, -20, -12],
+                [-6, 0, 9],
+                [10, 14, 0]])
     # Defining the constants matrix
-    B = np.array([20, 0, 12, -40])
+    B = np.array([12, 12, 12])
     def SciPy(A, B):
         # Solving the linear equations using SciPy
         X = sci.solve(A, B)
@@ -53,14 +52,12 @@ while True:
             A_i[:, i] = B
             X[i] = np.linalg.det(A_i) / det_A
 
-        # Solving using Cramer's Rule
-        X_cramer = cramer_rule(A, B)
         # Displaying the results
         print("Using Cramer's Rule, the currents flowing through each branch are:")
-        for i, current in enumerate(X_cramer, start=1):
+        for i, current in enumerate(X, start=1):
             print(f"Branch {i}: {current:.2f} A")
         print("\n")
-        return X_cramer
+        return X
     def main():
         print("Calculating currents using different methods (choose one):\n 1. SciPy \n 2. LU Decomposition \n 3. Cramer's Rule")
         choice = input("Enter your choice (1/2/3): ")
